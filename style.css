@@ -1,8 +1,11 @@
 :root {
-    --naranja: #F38D21;
-    --menta: #5eead4; /* Color de los botones de la imagen Scopesi */
+    --naranja: #F38D21; /* Tu naranja corporativo */
+    --menta: #5eead4;   /* Color del botón de Scopesi */
     --negro: #1a1a1a;
     --gris: #f9f9f9;
+    --wsp-verde: #25D366;
+    /* Degradado personalizado basado en tu imagen */
+    --gradient-brand: linear-gradient(135deg, #FF6600 0%, #F38D21 25%, #9B59B6 60%, #3498DB 100%);
 }
 
 body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; overflow-x: hidden; }
@@ -12,26 +15,50 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; overflow-x: 
 
 /* HEADER */
 header { background: white; display: flex; justify-content: space-between; padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-header img { height: 50px; }
+header .logo img { height: 50px; }
 nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
 nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; font-size: 13px; text-transform: uppercase; }
 
-/* HERO (Estilo Scopesi) */
+/* HERO (Estilo Scopesi con Degradado) */
 .hero { 
     height: 90vh; 
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('portada.jpg') center/cover; 
     display: flex; align-items: center; justify-content: flex-start; color: white; margin-top: 60px; padding-left: 10%;
 }
 .hero-content { text-align: left; max-width: 600px; }
-.hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+/* Degradado en el texto principal */
+.hero-content h1 { 
+    font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+    background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
 .hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
 
 /* BARRA EXPERIENCIA DEGRADADA */
-.experience-bar { background: linear-gradient(90deg, #1f2937, #374151); color: white; padding: 50px 10%; position: relative; }
+.gradient-custom { background: var(--gradient-brand); color: white; padding: 50px 10%; position: relative; }
 .container-flex { display: flex; justify-content: space-between; align-items: center; }
-.sub-tag { color: var(--naranja); font-weight: bold; font-size: 14px; letter-spacing: 2px; }
-.experience-bar h2 { font-size: 2.2rem; margin-top: 10px; max-width: 600px; }
-.exp-icon i { font-size: 4rem; color: var(--menta); opacity: 0.8; }
+.sub-tag { color: white; font-weight: bold; font-size: 14px; letter-spacing: 2px; opacity: 0.8; }
+.gradient-custom h2 { font-size: 2.2rem; margin-top: 10px; max-width: 600px; color: white; }
+.exp-icon i { font-size: 4rem; color: white; opacity: 0.8; }
+
+/* SERVICIOS VISUALES (Recuadros tipo Citymedia - PROTAGONISTA) */
+.servicios-visual-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px; margin-top: 50px; 
+}
+.service-box { 
+    background: white; border-radius: 12px; overflow: hidden; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: 0.3s; 
+    display: flex; flex-direction: column; text-align: left;
+}
+.service-box:hover { transform: translateY(-10px); }
+.service-img { width: 100%; height: 210px; object-fit: cover; }
+.service-info { padding: 30px; flex-grow: 1; }
+.card-icon { font-size: 2.5rem; color: var(--naranja); margin-bottom: 20px; }
+.service-box h3 { font-size: 1.4rem; color: var(--negro); margin-bottom: 15px; text-transform: uppercase; }
+.service-box p { color: #777; font-size: 1rem; }
+.highlight-orange { background: var(--naranja) !important; color: white; }
+.highlight-orange h3, .highlight-orange p, .highlight-orange .card-icon { color: white; }
 
 /* CARRUSEL DE CLIENTES */
 .slider { width: 100%; overflow: hidden; padding: 20px 0; }
@@ -43,18 +70,25 @@ nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; fon
     100% { transform: translateX(calc(-250px * 9)); }
 }
 
-/* GRIDS ORIGINALES */
-.services-grid, .team-grid, .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-.team-member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 5px solid var(--naranja); margin-bottom: 15px; }
+/* GRIDS Y ESTADÍSTICAS */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
 .stat-item h3 { font-size: 3rem; color: var(--naranja); }
+.contact-data p { margin-bottom: 15px; font-size: 1.1rem; }
+.contact-data i { color: var(--naranja); margin-right: 15px; }
 
-/* BOTONES ESTILO SCOPESI */
-.btn-primary { background: var(--menta); color: #111; padding: 14px 28px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; font-size: 13px; }
-.btn-wsp { background: #25D366; color: white !important; padding: 8px 20px; border-radius: 25px; }
+/* BOTONES */
+.btn-primary { background: var(--menta); color: #111; padding: 14px 28px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; font-size: 13px; text-transform: uppercase; }
 
-/* REDES Y EXTRAS */
-.social-grid { display: flex; justify-content: center; gap: 30px; font-size: 2rem; }
-.social-grid a { color: var(--negro); transition: 0.3s; }
-.social-grid a:hover { color: var(--naranja); }
-.testimonial-box { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); font-style: italic; }
+/* BOTÓN WHATSAPP FLOTANTE */
+.whatsapp-float { 
+    position: fixed; bottom: 80px; right: 20px; 
+    background: var(--wsp-verde); color: white; 
+    width: 60px; height: 60px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    font-size: 30px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    transition: 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1); background: #1ebe57; }
+
+/* EXTRAS */
 .scroll-up { position: fixed; bottom: 20px; right: 20px; background: white; color: var(--negro); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
