@@ -19,10 +19,15 @@ nav ul li a { text-decoration: none; color: var(--negro); font-weight: 700; font
 .header-socials a { color: var(--negro); font-size: 18px; }
 
 /* HERO (Espaciado mejorado) */
-.hero { height: 75vh; display: flex; align-items: center; padding-left: 10%; margin-top: 80px; }
-.hero-content h1 { font-size: 3.5rem; color: var(--naranja); margin-bottom: 5px; }
-.hero-subtitle { font-size: 1.1rem; color: #555; margin-top: 5px; margin-bottom: 30px; }
-
+.hero { height: 90vh; /* Mantén esta altura para que se vea imponente en PC */
+    background-image: url('peru-map-gradient.jpg'); /* ESTA ES LA LÍNEA CLAVE */
+    background-size: cover; /* Asegura que la imagen cubra toda la franja */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Cambia el texto a blanco para que resalte */
+    margin-top: 60px; /* Ajusta el espaciado para que no se pegue al menú */
+    display: flex; /* Para centrar el contenido */
+    align-items: center; /* Para centrar el contenido verticalmente */
+    justify-content: center; /* Para centrar el contenido horizontalmente */}
 /* SERVICIOS VISUALES */
 .services-visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
 .service-box { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.08); text-align: left; }
