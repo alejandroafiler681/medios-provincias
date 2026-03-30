@@ -1,336 +1,64 @@
-/* =========================================================
-   ESTILOS PROFESIONALES MEDIOS PROVINCIAS - IDENTIDAD NARANJA
-   Inspirado en Citymedia - Estilo Tarjetas y Limpio
-   ========================================================= */
-
 :root {
-    --color-principal: #FF8C00; /* NARANJA CORPORATIVO CORRECTO */
-    --color-oscuro: #1A1A1A;    /* Negro/Gris muy oscuro */
-    --color-fondo-light: #F4F7F6; /* Gris muy suave para fondos */
-    --color-texto: #333333;
-    --color-blanco: #FFFFFF;
-    --fuente-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --naranja: #F38D21; /* El naranja de tu logo */
+    --negro: #1a1a1a;
+    --gris: #f9f9f9;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--fuente-principal);
+body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; }
+.container { padding: 80px 5%; max-width: 1200px; margin: auto; text-align: center; }
+.bg-light { background: var(--gris); }
+.bg-dark { background: var(--negro); color: white; }
+
+/* HEADER */
+header { background: white; display: flex; justify-content: space-between; padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+header img { height: 50px; }
+nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; font-size: 13px; text-transform: uppercase; }
+
+/* GRIDS (Cuadrículas) */
+.services-grid, .team-grid, .clients-grid, .stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+    margin-top: 50px; 
 }
 
-html {
-    scroll-behavior: smooth;
-    color: var(--color-texto);
-    background-color: var(--color-blanco);
+/* CLIENTES */
+.clients-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.client-logo { 
+    padding: 20px; 
+    background: white; 
+    border: 1px solid #ddd; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 
-/* --- ESTILOS GENERALES --- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-h2.section-title {
-    font-size: 2.8rem;
-    color: var(--color-oscuro);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-h2.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--color-principal);
-    margin: 15px auto;
-}
-
-p.section-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 60px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.btn-primary {
-    background-color: var(--color-principal);
-    color: var(--color-blanco);
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    display: inline-block;
-    border: 2px solid transparent;
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--color-principal);
-    border-color: var(--color-principal);
-}
-
-/* --- HEADER / MENÚ (Limpio y Fijo) --- */
-header {
-    background-color: var(--color-blanco);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-header .logo img {
-    height: 60px; /* Ajuste para tu logo */
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    align-items: center;
-}
-
-nav ul li a {
-    color: var(--color-oscuro);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--color-principal);
-}
-
-.btn-wsp {
-    background-color: #25D366;
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 30px;
-}
-
-/* --- HERO SECTION (Portada de Impacto) --- */
-.hero {
-    height: 100vh;
-    /* IMAGEN DE FONDO DE PORTADA - Reemplázala luego */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=FOTO+PANEL+CARRETERO') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-    margin-top: 90px; /* Espacio para el header fijo */
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- NOSOTROS --- */
-.nosotros {
-    background-color: var(--color-blanco);
-}
-
-/* --- SERVICIOS (Estilo Tarjetas Citymedia) --- */
-.servicios {
-    background-color: var(--color-fondo-light);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-}
-
-.service-card {
-    background-color: var(--color-blanco);
-    border-radius: 10px;
-    overflow: hidden; /* Para que la imagen respete las esquinas redondeadas */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.card-media {
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Contenedor para imágenes o videos dentro de la tarjeta */
-.card-media img, 
-.card-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la foto llene el espacio sin deformarse */
-}
-
-.card-body {
-    padding: 30px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    color: var(--color-principal);
-    margin-bottom: 20px;
-}
-
-.card-body h3 {
-    font-size: 1.4rem;
-    color: var(--color-oscuro);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.card-body p {
-    color: #777;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.card-body .btn-text {
-    color: var(--color-principal);
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-/* Tarjeta SEM Destacada (Estilo Citymedia Destacado) */
-.service-card.highlight {
-    background-color: var(--color-oscuro);
-    color: var(--color-blanco);
-}
-
-.service-card.highlight .card-body h3,
-.service-card.highlight .card-body p {
-    color: var(--color-blanco);
-}
-
-.service-card.highlight .card-icon {
-    color: var(--color-principal);
-}
-
-/* --- PROVINCIAS HUB (Noticias/Casos) --- */
-.noticias {
-    background-color: var(--color-blanco);
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.news-card {
-    text-align: left;
-}
-
-.news-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+/* EQUIPO */
+.team-member img { 
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 5px solid var(--naranja); 
     margin-bottom: 15px;
 }
 
-.news-card h4 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: var(--color-oscuro);
-}
+/* ESTADÍSTICAS */
+.stat-item h3 { font-size: 3rem; color: var(--naranja); }
 
-/* --- CONTACTO --- */
-.contacto {
-    background-color: var(--color-oscuro);
-    color: var(--color-blanco);
-}
+/* BOTONES */
+.btn-primary { background: var(--naranja); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+.btn-wsp { background: #25D366; color: white !important; padding: 8px 20px; border-radius: 25px; }
 
-.contacto h2.section-title {
-    color: var(--color-blanco);
-}
-
-.contacto-wrapper {
-    display: flex;
-    gap: 50px;
-    text-align: left;
-    margin-top: 50px;
-}
-
-.form-placeholder {
-    flex: 2;
-    background-color: rgba(255,255,255,0.05);
-    padding: 40px;
-    border-radius: 8px;
-}
-
-.contact-info {
-    flex: 1;
-}
-
-.contact-item {
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-.contact-item i {
-    color: var(--color-principal);
-    font-size: 1.3rem;
-    margin-right: 15px;
-}
-
-/* --- FOOTER --- */
-footer {
-    background-color: #111;
-    color: #888;
-    text-align: center;
-    padding: 40px;
-    font-size: 0.9rem;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    header { padding: 10px 20px; }
-    nav ul { display: none; } /* Ocultar menú en móvil por ahora */
-    .hero-content h1 { font-size: 2.5rem; }
-    .contacto-wrapper { flex-direction: column; }
+/* HERO */
+.hero { 
+    height: 90vh; 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('portada.jpg') center/cover; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    margin-top: 60px;
 }
