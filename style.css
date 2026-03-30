@@ -1,73 +1,105 @@
-/* --- ESTILOS PERSONALIZADOS MEDIOS PROVINCIAS --- */
+/* =========================================================
+   ESTILOS PROFESIONALES MEDIOS PROVINCIAS - IDENTIDAD NARANJA
+   Inspirado en Citymedia - Estilo Tarjetas y Limpio
+   ========================================================= */
 
 :root {
-    --color-principal: #e31d2b; /* Rojo de tu logo */
-    --color-oscuro: #1a1a1a;    /* Negro/Gris oscuro */
+    --color-principal: #FF8C00; /* NARANJA CORPORATIVO CORRECTO */
+    --color-oscuro: #1A1A1A;    /* Negro/Gris muy oscuro */
+    --color-fondo-light: #F4F7F6; /* Gris muy suave para fondos */
     --color-texto: #333333;
-    --color-blanco: #ffffff;
+    --color-blanco: #FFFFFF;
+    --fuente-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--fuente-principal);
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
-}
-
-body {
+    scroll-behavior: smooth;
     color: var(--color-texto);
-    line-height: 1.6;
+    background-color: var(--color-blanco);
 }
 
+/* --- ESTILOS GENERALES --- */
 .container {
-    padding: 80px 10px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 80px 20px;
     text-align: center;
 }
 
-h2 {
-    font-size: 2.5rem;
+h2.section-title {
+    font-size: 2.8rem;
     color: var(--color-oscuro);
-    margin-bottom: 20px;
     text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
-h2::after {
+h2.section-title::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 4px;
     background-color: var(--color-principal);
-    margin: 10px auto;
+    margin: 15px auto;
 }
 
-/* --- Encabezado --- */
+p.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+/* --- HEADER / MENÚ (Limpio y Fijo) --- */
 header {
     background-color: var(--color-blanco);
-    color: var(--color-oscuro);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
+    padding: 15px 50px;
     position: fixed;
     width: 100%;
+    top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 header .logo img {
-    height: 50px; /* Ajusta la altura de tu logo */
+    height: 60px; /* Ajuste para tu logo */
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 25px;
     align-items: center;
 }
 
@@ -75,7 +107,7 @@ nav ul li a {
     color: var(--color-oscuro);
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     transition: color 0.3s;
 }
@@ -85,159 +117,220 @@ nav ul li a:hover {
 }
 
 .btn-wsp {
-    background-color: #25d366; /* Verde WhatsApp */
+    background-color: #25D366;
     color: white !important;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 30px;
 }
 
-/* --- Hero Section --- */
+/* --- HERO SECTION (Portada de Impacto) --- */
 .hero {
     height: 100vh;
-    /* Usaré una imagen de fondo temporal, luego la cambias por una de tus vallas */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1920&auto=format&fit=crop') center/cover;
+    /* IMAGEN DE FONDO DE PORTADA - Reemplázala luego */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                url('https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=FOTO+PANEL+CARRETERO') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
     padding: 0 20px;
+    margin-top: 90px; /* Espacio para el header fijo */
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    max-width: 700px;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.btn-primary {
-    background-color: var(--color-principal);
-    color: var(--color-blanco);
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-    display: inline-block;
+/* --- NOSOTROS --- */
+.nosotros {
+    background-color: var(--color-blanco);
 }
 
-.btn-primary:hover {
-    background-color: #b31722;
-}
-
-/* --- Servicios (Grilla estilo Citymedia) --- */
-.services-section {
-    background-color: #f9f9f9;
+/* --- SERVICIOS (Estilo Tarjetas Citymedia) --- */
+.servicios {
+    background-color: var(--color-fondo-light);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
 }
 
 .service-card {
     background-color: var(--color-blanco);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-bottom: 3px solid transparent;
+    border-radius: 10px;
+    overflow: hidden; /* Para que la imagen respete las esquinas redondeadas */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-    border-bottom: 3px solid var(--color-principal);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-.icon-service {
-    font-size: 3rem;
+.card-media {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Contenedor para imágenes o videos dentro de la tarjeta */
+.card-media img, 
+.card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto llene el espacio sin deformarse */
+}
+
+.card-body {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-icon {
+    font-size: 2.5rem;
     color: var(--color-principal);
     margin-bottom: 20px;
 }
 
-.service-card h3 {
-    font-size: 1.2rem;
+.card-body h3 {
+    font-size: 1.4rem;
     color: var(--color-oscuro);
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
+.card-body p {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-body .btn-text {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Tarjeta SEM Destacada (Estilo Citymedia Destacado) */
 .service-card.highlight {
     background-color: var(--color-oscuro);
     color: var(--color-blanco);
 }
 
-.service-card.highlight h3, 
-.service-card.highlight .icon-service {
+.service-card.highlight .card-body h3,
+.service-card.highlight .card-body p {
     color: var(--color-blanco);
 }
 
-/* --- Secciones Oscuras --- */
-.dark-section {
+.service-card.highlight .card-icon {
+    color: var(--color-principal);
+}
+
+/* --- PROVINCIAS HUB (Noticias/Casos) --- */
+.noticias {
+    background-color: var(--color-blanco);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.news-card {
+    text-align: left;
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.news-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--color-oscuro);
+}
+
+/* --- CONTACTO --- */
+.contacto {
     background-color: var(--color-oscuro);
     color: var(--color-blanco);
 }
 
-.dark-section h2 {
+.contacto h2.section-title {
     color: var(--color-blanco);
 }
 
-/* --- Contacto --- */
 .contacto-wrapper {
     display: flex;
     gap: 50px;
-    margin-top: 40px;
     text-align: left;
+    margin-top: 50px;
 }
 
-.form-placeholder, .info-contacto {
+.form-placeholder {
+    flex: 2;
+    background-color: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.contact-info {
     flex: 1;
 }
 
-.info-contacto p {
-    margin-bottom: 15px;
+.contact-item {
+    margin-bottom: 25px;
     font-size: 1.1rem;
 }
 
-.info-contacto i {
+.contact-item i {
     color: var(--color-principal);
-    margin-right: 10px;
+    font-size: 1.3rem;
+    margin-right: 15px;
 }
 
-/* --- Footer --- */
+/* --- FOOTER --- */
 footer {
     background-color: #111;
-    color: #999;
+    color: #888;
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     font-size: 0.9rem;
 }
 
-/* --- Adaptación a Celulares (Responsive) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 20px;
-    }
-    nav ul {
-        display: none; /* Esto oculta el menú en móviles, luego se puede hacer uno desplegable */
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    .contacto-wrapper {
-        flex-direction: column;
-    }
+    header { padding: 10px 20px; }
+    nav ul { display: none; } /* Ocultar menú en móvil por ahora */
+    .hero-content h1 { font-size: 2.5rem; }
+    .contacto-wrapper { flex-direction: column; }
 }
