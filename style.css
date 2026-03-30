@@ -13,17 +13,26 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; overflow-x: 
 .bg-light { background: var(--gris); }
 .bg-dark { background: var(--negro); color: white; }
 
+/* BARRA SUPERIOR (Redes y Contacto integrándose visualmente) */
+.top-bar { padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1001; }
+.top-bar .container-flex { justify-content: space-between; }
+.top-social { display: flex; gap: 15px; }
+.top-social a { color: white; transition: 0.3s; }
+.top-social a:hover { color: var(--naranja); }
+.top-contact { display: flex; gap: 20px; color: #ccc; }
+.top-contact i { color: var(--naranja); margin-right: 8px; }
+
 /* HEADER */
-header { background: white; display: flex; justify-content: space-between; padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 40px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 header .logo img { height: 50px; }
-nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+nav ul { display: flex; list-style: none; gap: 20px; align-items: center; justify-content: center; flex-grow: 1; }
 nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; font-size: 13px; text-transform: uppercase; }
 
 /* HERO (Fondo transparente para video/foto) */
 .hero { 
     height: 90vh; 
     background: transparent; /* Fondo transparente */
-    display: flex; align-items: center; justify-content: flex-start; color: white; margin-top: 60px; padding-left: 10%;
+    display: flex; align-items: center; justify-content: flex-start; color: white; margin-top: 100px; padding-left: 10%;
 }
 .hero-content { text-align: left; max-width: 600px; }
 /* Título Naranja Corporativo */
@@ -35,7 +44,7 @@ nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; fon
 
 /* BARRA EXPERIENCIA DEGRADADA */
 .gradient-corporate { background: var(--gradient-corporate); color: white; padding: 50px 10%; position: relative; }
-.container-flex { display: flex; justify-content: space-between; align-items: center; }
+.gradient-corporate .container-flex { justify-content: space-between; }
 .sub-tag { color: white; font-weight: bold; font-size: 14px; letter-spacing: 2px; opacity: 0.8; }
 .gradient-corporate h2 { font-size: 2.2rem; margin-top: 10px; max-width: 600px; color: white; }
 .exp-icon i { font-size: 4rem; color: white; opacity: 0.8; }
@@ -74,25 +83,8 @@ nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; fon
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
 .stat-item h3 { font-size: 3rem; color: var(--naranja); }
 
-/* NOTICIAS (Estilo Citymedia adaptado) */
-.news-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-    gap: 40px; margin-top: 50px; 
-}
-.news-card { 
-    background: white; border-radius: 12px; overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; 
-    display: flex; flex-direction: column;
-}
-.news-img { width: 100%; height: 250px; object-fit: cover; }
-.news-info { padding: 30px; flex-grow: 1; }
-.news-info h4 { font-size: 1.4rem; color: var(--negro); margin-bottom: 15px; }
-.news-info p { color: #666; font-size: 1rem; margin-bottom: 20px; }
-.read-more { color: var(--naranja); font-weight: bold; text-decoration: none; }
-
-/* CONTACTO (Estilo Imagen 3) */
-.contact-section { background: var(--gradient-corporate); color: white; padding: 100px 10%; }
+/* CONTACTO (Estilo Imagen 1: Fondo gris oscuro para que se note el logo) */
+.contact-section { background: #333; color: white; padding: 100px 10%; }
 .contact-wrapper { justify-content: center; gap: 80px; text-align: left; }
 .contact-logo img { height: 120px; opacity: 0.9; }
 .contact-box { background: rgba(255,255,255,0.05); padding: 50px; border-radius: 12px; max-width: 600px; flex-grow: 1; }
@@ -119,5 +111,23 @@ nav ul li a { text-decoration: none; color: var(--negro); font-weight: bold; fon
 .whatsapp-float:hover { transform: scale(1.1); background: #1ebe57; }
 .scroll-up { position: fixed; bottom: 20px; right: 20px; background: white; color: var(--negro); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
 
-/* EXTRAS */
-.scroll-up { position: fixed; bottom: 20px; right: 20px; background: white; color: var(--negro); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+/* ADAPTACIÓN MÓVIL (Versión Vertical) */
+@media (max-width: 768px) {
+    .top-bar { padding: 10px; }
+    .top-contact { display: none; } /* Ocultar contacto en la barra superior en móvil */
+    header { top: 0; padding: 10px 20px; }
+    header .logo img { height: 40px; }
+    nav ul { display: none; } /* Ocultar menú principal en móvil */
+    .hero { height: auto; padding: 20px; margin-top: 60px; justify-content: center; text-align: center; }
+    .hero-content { text-align: center; }
+    .hero-content h1 { font-size: 2rem; }
+    .gradient-corporate { padding: 20px; text-align: center; }
+    .gradient-corporate .container-flex { flex-direction: column; text-align: center; }
+    .gradient-corporate h2 { font-size: 1.5rem; }
+    .exp-icon { display: none; }
+    .services-visual-grid { grid-template-columns: 1fr; gap: 20px; }
+    .contact-wrapper { flex-direction: column; gap: 40px; }
+    .contact-logo img { height: 80px; }
+    .contact-box { padding: 30px; }
+    .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
+}
